@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import { Box, Grommet } from "grommet";
+import { Box, Button, Heading, Grommet } from "grommet";
+import { Apps } from "grommet-icons";
 
 const AppBar = props => (
   <Box
@@ -9,7 +10,7 @@ const AppBar = props => (
     align="center"
     justify="between"
     background="brand"
-    elevation="medium"
+    elevation="small"
     pad={{ left: "medium", right: "small", vertical: "small" }}
     style={{ zIndex: "1" }}
     {...props}
@@ -19,7 +20,7 @@ const AppBar = props => (
 const theme = {
   global: {
     colors: {
-      brand: "lightgray"
+      brand: "green"
     },
     font: {
       family: "Roboto",
@@ -32,7 +33,13 @@ const theme = {
 function App() {
   return (
     <Grommet theme={theme}>
-      <AppBar>Hello World from Grommet</AppBar>
+      <AppBar>
+        <p>Hello World from Grommet</p>
+        <Heading level="3" margin="none">
+          App
+        </Heading>
+        <Button icon={<Apps />} />
+      </AppBar>
     </Grommet>
   );
 }
