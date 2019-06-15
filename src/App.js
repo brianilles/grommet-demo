@@ -15,7 +15,12 @@ import {
   FormField,
   Calendar,
   Chart,
-  Markdown
+  Markdown,
+  Video,
+  DataTable,
+  Text,
+  Meter,
+  CheckBox
 } from "grommet";
 import { Apps } from "grommet-icons";
 
@@ -36,7 +41,7 @@ const AppBar = props => (
 const theme = {
   global: {
     colors: {
-      brand: "green"
+      brand: "red"
     },
     font: {
       family: "Roboto",
@@ -122,6 +127,46 @@ function App() {
         #### Grommet **heart**s markdown Favorite thing,
         [link](https://twitter.com/grommet_io)
       </Markdown>
+      <Video controls="over" fit="cover">
+        <source key="video" src="/assets/small.mp4" type="video/mp4" />
+        <track
+          key="cc"
+          label="English"
+          kind="subtitles"
+          srcLang="en"
+          src="/assets/small-en.vtt"
+          default
+        />
+      </Video>
+      <DataTable
+        columns={[
+          {
+            property: "name",
+            header: <Text>Name</Text>,
+            primary: true
+          },
+          {
+            property: "percent",
+            header: "Complete",
+            render: datum => (
+              <Box pad={{ vertical: "xsmall" }}>
+                <Meter
+                  values={[{ value: datum.percent }]}
+                  thickness="small"
+                  size="small"
+                />
+              </Box>
+            )
+          }
+        ]}
+        data={[
+          { name: "Alan", percent: 60 },
+          { name: "Bryan", percent: 10 },
+          { name: "Chris", percent: 30 },
+          { name: "Eric", percent: 40 }
+        ]}
+      />
+      <CheckBox label="interested?" />
     </Grommet>
   );
 }
