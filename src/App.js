@@ -10,7 +10,10 @@ import {
   Tab,
   WorldMap,
   TextInput,
-  TextArea
+  TextArea,
+  Form,
+  FormField,
+  Calendar
 } from "grommet";
 import { Apps } from "grommet-icons";
 
@@ -88,6 +91,15 @@ function App() {
       />
       <TextInput placeholder="type here" />
       <TextArea placeholder="type here" />
+      <Form>
+        <FormField name="name" label="Name" />
+        <Button type="submit" primary label="Submit" />
+      </Form>
+      <Calendar
+        size="small"
+        date={new Date().toISOString()}
+        onSelect={date => {}}
+      />
     </Grommet>
   );
 }
