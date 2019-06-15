@@ -1,6 +1,17 @@
 import React from "react";
 import "./App.css";
-import { Box, Button, Heading, Grommet } from "grommet";
+import {
+  Box,
+  Button,
+  Heading,
+  Grommet,
+  Menu,
+  Tabs,
+  Tab,
+  WorldMap,
+  TextInput,
+  TextArea
+} from "grommet";
 import { Apps } from "grommet-icons";
 
 const AppBar = props => (
@@ -40,6 +51,43 @@ function App() {
         </Heading>
         <Button icon={<Apps />} />
       </AppBar>
+      <Menu
+        label="Menu"
+        items={[
+          { label: "First Action", onClick: () => {} },
+          { label: "Second Action", onClick: () => {} }
+        ]}
+      />
+      <Tabs>
+        <Tab title="tab 1">
+          <Box pad="medium">One</Box>
+        </Tab>
+        <Tab title="tab 2">
+          <Box pad="medium">Two</Box>
+        </Tab>
+      </Tabs>
+      <WorldMap
+        color="neutral-1"
+        continents={[
+          {
+            name: "Africa",
+            color: "light-5",
+            onClick: name => {}
+          }
+        ]}
+        onSelectPlace={(lat, lon) => {}}
+        places={[
+          {
+            name: "Sydney",
+            location: [-33.8830555556, 151.216666667],
+            color: "accent-2",
+            onClick: name => {}
+          }
+        ]}
+        selectColor="accent-2"
+      />
+      <TextInput placeholder="type here" />
+      <TextArea placeholder="type here" />
     </Grommet>
   );
 }
